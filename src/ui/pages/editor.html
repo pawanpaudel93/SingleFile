@@ -34,39 +34,60 @@
 				src="/src/ui/resources/button_highlighter_blue.png" draggable="false">
 			<img type="button" class="highlight-button highlight-green-button highlight-disabled" data-color="green"
 				src="/src/ui/resources/button_highlighter_green.png" draggable="false">
-			<img type="button" class="toggle-highlights-button"
-				src="/src/ui/resources/button_highlighter_visible.png" draggable="false">
+			<img type="button" class="toggle-highlights-button" src="/src/ui/resources/button_highlighter_visible.png"
+				draggable="false">
 			<img type="button" class="remove-highlight-button remove-highlight-disabled"
 				src="/src/ui/resources/button_highlighter_delete.png" draggable="false">
 			<div class="separator"></div>
 		</div>
 		<div class="buttons">
-			<img type="button" class="edit-page-button edit-disabled"
-				src="/src/ui/resources/button_note_edit.png" draggable="false">
-			<img type="button" class="format-page-button format-disabled"
-				src="/src/ui/resources/button_note_format.png" draggable="false">
+			<img type="button" class="edit-page-button edit-disabled" src="/src/ui/resources/button_note_edit.png"
+				draggable="false">
+			<img type="button" class="format-page-button format-disabled" src="/src/ui/resources/button_note_format.png"
+				draggable="false">
 			<div class="separator"></div>
 		</div>
 		<div class="buttons">
-			<img type="button" class="cut-inner-page-button cut-disabled"
-				src="/src/ui/resources/button_cut_inner.png" draggable="false">
-			<img type="button" class="cut-outer-page-button cut-disabled"
-				src="/src/ui/resources/button_cut_outer.png" draggable="false">
+			<img type="button" class="cut-inner-page-button cut-disabled" src="/src/ui/resources/button_cut_inner.png"
+				draggable="false">
+			<img type="button" class="cut-outer-page-button cut-disabled" src="/src/ui/resources/button_cut_outer.png"
+				draggable="false">
 			<img type="button" class="undo-cut-page-button" src="/src/ui/resources/button_undo_cut.png"
 				draggable="false">
-			<img type="button" class="undo-all-cut-page-button"
-				src="/src/ui/resources/button_undo_all_cut.png" draggable="false">
+			<img type="button" class="undo-all-cut-page-button" src="/src/ui/resources/button_undo_all_cut.png"
+				draggable="false">
 			<img type="button" class="redo-cut-page-button" src="/src/ui/resources/button_redo_cut.png"
 				draggable="false">
 			<div class="separator"></div>
 		</div>
 		<div class="buttons">
-			<img type="button" class="print-page-button" src="/src/ui/resources/button_print.png"
-				draggable="false">
-			<img type="button" class="save-page-button" src="/src/ui/resources/button_download.png"
-				draggable="false">
+			<img type="button" class="print-page-button" src="/src/ui/resources/button_print.png" draggable="false">
+			<img type="button" class="save-page-button" src="/src/ui/resources/button_download.png" draggable="false">
+		</div>
+		<div class="buttons">
+			<img type="button" class="othent-upload-button" src="/src/ui/resources/button_upload.png" draggable="false">
+			<button class="othent-login-button">
+				<img class="othent-login-button-logo" src="/src/ui/resources/othent_icon.png" draggable="false">
+				<div class="othent-login-button-text">Login&nbsp;with&nbsp;
+					<span class="othent-login-button-brandname">Othent</span>
+				</div>
+			</button>
 		</div>
 	</div>
+	<!-- Loader -->
+	<div class="loader-wrapper">
+		<div class="loader"></div>
+		<div class="loader-text">Archiving...</div>
+	</div>
+	<!-- Modal -->
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="modal-close">&times;</span>
+			<h2>Archived Result</h2>
+			<div class="archived-url"></div>
+		</div>
+	</div>
+
 	<iframe class="editor"
 		srcdoc="&lt;!DOCTYPE html&gt;&lt;body&gt;&lt;script src=/lib/single-file-extension-editor-helper.js&gt;&lt;/script&gt;&lt;script src=/lib/single-file-extension-editor.js&gt;&lt;/script&gt;&lt;script src=/src/lib/readability/Readability.js&gt;&lt;/script&gt;&lt;/script&gt;&lt;script src=/src/lib/readability/Readability-readerable.js&gt;&lt;/script&gt;&lt;/body&gt;"
 		sandbox="allow-scripts allow-modals"></iframe>

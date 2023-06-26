@@ -24,7 +24,10 @@
 /* global browser, document, matchMedia, addEventListener, navigator, setInterval */
 
 import * as download from "../../core/common/download.js";
+import { Othent } from "../../core/common/othent.js";
 import { onError } from "./../common/content-error.js";
+
+let userData = JSON.parse(localStorage.getItem("othent:userData"))
 
 const FOREGROUND_SAVE = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent) && !/Vivaldi/.test(navigator.userAgent) && !/OPR/.test(navigator.userAgent);
 
@@ -50,6 +53,14 @@ const undoCutPageButton = document.querySelector(".undo-cut-page-button");
 const undoAllCutPageButton = document.querySelector(".undo-all-cut-page-button");
 const redoCutPageButton = document.querySelector(".redo-cut-page-button");
 const savePageButton = document.querySelector(".save-page-button");
+const othentLoginButton = document.querySelector(".othent-login-button");
+const othentLoginButtonText = document.querySelector(".othent-login-button-text")
+const othentLoginButtonIcon = document.querySelector(".othent-login-button-logo")
+const othentUploadButton = document.querySelector(".othent-upload-button")
+const spinner = document.querySelector(".loader-wrapper")
+const modal = document.getElementById("myModal");
+const modalClose = document.querySelector(".modal-close");
+const archivedUrlElement = document.querySelector(".archived-url")
 const printPageButton = document.querySelector(".print-page-button");
 const lastButton = toolbarElement.querySelector(".buttons:last-of-type [type=button]:last-of-type");
 
@@ -75,6 +86,27 @@ undoAllCutPageButton.title = browser.i18n.getMessage("editorUndoAllCutPage");
 redoCutPageButton.title = browser.i18n.getMessage("editorRedoCutPage");
 savePageButton.title = browser.i18n.getMessage("editorSavePage");
 printPageButton.title = browser.i18n.getMessage("editorPrintPage");
+othentUploadButton.title = "Othent Archive"
+spinner.style.display = "none"
+if (userData) {
+	onOthentLogin()
+} else {
+	onOthentLogout()
+}
+
+modal.style.display = "none";
+
+// Close the modal when the <span> (x) is clicked
+modalClose.onclick = function() {
+  modal.style.display = "none";
+};
+
+// Close the modal when the user clicks outside of it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
 
 addYellowNoteButton.onmouseup = () => editorElement.contentWindow.postMessage(JSON.stringify({ method: "addNote", color: "note-yellow" }), "*");
 addPinkNoteButton.onmouseup = () => editorElement.contentWindow.postMessage(JSON.stringify({ method: "addNote", color: "note-pink" }), "*");
@@ -200,6 +232,24 @@ redoCutPageButton.onmouseup = () => {
 savePageButton.onmouseup = () => {
 	savePage();
 };
+othentLoginButton.onmouseup = () => {
+	if (userData) {
+		othentLogout()
+	} else {
+		othentLogin();
+	}
+};
+
+othentUploadButton.onmouseup = () => {
+	editorElement.contentWindow.postMessage(JSON.stringify({
+		method: "othentUpload",
+		compressHTML: tabData.options.compressHTML,
+		updatedResources,
+		filename: tabData.filename,
+		foregroundSave: FOREGROUND_SAVE
+	}), "*");
+}
+
 if (typeof print == "function") {
 	printPageButton.onmouseup = () => {
 		editorElement.contentWindow.postMessage(JSON.stringify({ method: "printPage" }), "*");
@@ -263,7 +313,7 @@ function toolbarOnTouchEnd(event) {
 let updatedResources = {};
 
 addEventListener("resize", viewportSizeChange);
-addEventListener("message", event => {
+addEventListener("message", async (event) => {
 	const message = JSON.parse(event.data);
 	if (message.method == "setContent") {
 		const pageData = {
@@ -273,6 +323,42 @@ addEventListener("message", event => {
 		tabData.options.openEditor = false;
 		tabData.options.openSavedPage = false;
 		download.downloadPage(pageData, tabData.options);
+	}
+	if (message.method == "othentUpload") {
+		spinner.style.display = "block"
+		try {
+			const titlePattern = /\s\(\d{1,2}_\d{1,2}_\d{4}\s\d{1,2}_\d{1,2}_\d{1,2}\s[AP]M\)\.html$/;
+			const urlPattern = /url:\s(.+)/;
+			const datePattern = /saved date:\s(.+)/;
+			const urlMatch = message.content.match(urlPattern);
+			const dateMatch = message.content.match(datePattern);
+			const url = urlMatch ? urlMatch[1] : '';
+			const savedDate = dateMatch ? dateMatch[1] : '';
+			const timestamp = (new Date(savedDate).getTime() / 1000).toString();
+			const othent = await getOthent();
+			const signedBundlrTransaction = await othent.signTransactionBundlr({
+				othentFunction: 'uploadData', 
+				data: message.content,
+				tags: [
+					{name: "App-Name", value: "SingleFile-Archive"},
+					{name: "App-Version", value: "1.0.0"},
+					{name: 'Content-Type', value: 'text/html'},
+					{name: 'page:title', value: tabData.filename.replace(titlePattern, "")},
+					{name: 'page:url', value: url},
+					{name: 'page:timestamp', value: timestamp},
+					{name: 'Archiver', value: userData.contract_id},
+				]
+			});
+			const transaction = await othent.sendTransactionBundlr(signedBundlrTransaction);
+			const archivedUrl = `https://arweave.net/${transaction.transactionId}`
+			spinner.style.display = "none"
+			archivedUrlElement.innerHTML = `Archived URL: <a href="${archivedUrl}" target="_blank">${archivedUrl}</a>`
+			modal.style.display = "block";
+		} catch (error) {
+			spinner.style.display = "none"
+			archivedUrlElement.innerHTML = `Error: ${String(error)}`
+			modal.style.display = "block";
+		}
 	}
 	if (message.method == "onUpdate") {
 		tabData.docSaved = message.saved;
@@ -438,6 +524,53 @@ function savePage() {
 		filename: tabData.filename,
 		foregroundSave: FOREGROUND_SAVE
 	}), "*");
+}
+
+function onOthentLogin() {
+	othentLoginButton.src = userData.picture
+	othentLoginButtonText.innerHTML = 'Logout'
+	othentLoginButtonIcon.src = userData.picture
+	othentUploadButton.style.display = "block"
+	othentLoginButtonIcon.style.height = "100%"
+	othentLoginButtonIcon.style.width = "100%"
+	othentLoginButtonIcon.style.borderRadius = "50%"
+}
+
+function onOthentLogout() {
+	othentLoginButtonIcon.src = "/src/ui/resources/othent_icon.png"
+	othentLoginButtonText.innerHTML = 'Login&nbsp;with&nbsp;<span class="othent-login-button-brandname">Othent</span>'
+	othentUploadButton.style.display = "none"
+	othentLoginButtonIcon.style.height = 20
+	othentLoginButtonIcon.style.width = 32
+	othentLoginButtonIcon.style.borderRadius = "0%"
+}
+
+async function getOthent() {
+	return Othent({ API_ID: "API_ID" });
+}
+
+async function othentLogin() {
+	try {
+		const othent = await getOthent()
+		const loginResponse = await othent.logIn();
+		localStorage.setItem("othent:userData", JSON.stringify(loginResponse))
+		userData = loginResponse
+		onOthentLogin()
+	} catch (error) {
+		console.log(`othent.login() failed:`, error);
+	}
+}
+
+async function othentLogout() {
+	try {
+      const othent = await getOthent();
+      const logoutResponse = await othent.logOut();
+      localStorage.removeItem("othent:userData")
+	  userData = null
+	  onOthentLogout()
+    } catch (error) {
+      console.log(`othent.logout() failed:`, error);
+    }
 }
 
 function getPosition(event) {

@@ -1083,6 +1083,14 @@ pre code {
 				window.parent.postMessage(JSON.stringify({ method: "setContent", content }), "*");
 			}
 		}
+		if (message.method == "othentUpload") {
+			onUpdate(true);
+			let content = getContent(message.compressHTML, message.updatedResources);
+			if (initScriptContent) {
+				content = content.replace(/<script data-template-shadow-root src.*?<\/script>/g, initScriptContent);
+			}
+			window.parent.postMessage(JSON.stringify({ method: "othentUpload", content }), "*");
+		}
 		if (message.method == "printPage") {
 			printPage();
 		}

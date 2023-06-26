@@ -124,6 +124,8 @@ async function saveTabs(tabs, options = {}) {
 			url: tab.url,
 			title: tab.title
 		};
+		options.openEditor = true // Always make open editor
+		tabOptions.openEditor = true // Always make all open editor
 		if (options.autoSave) {
 			if (autoSaveIsEnabled(tab)) {
 				const taskInfo = addTask({
