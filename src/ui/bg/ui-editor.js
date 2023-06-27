@@ -576,12 +576,16 @@ async function othentLogout() {
       const othent = await getOthent();
 	  const urlToRestore = window.location.href
       const logoutResponse = await othent.logOut();
-      localStorage.removeItem("othent:userData")
-	  userData = null
-	  onOthentLogout()
-	  browser.tabs.update(null, { url: urlToRestore }, () => {
-		browser.runtime.reload()
-	  });
+	  if (logoutResponse.response) {
+		localStorage.removeItem("othent:userData")
+		userData = null
+		onOthentLogout()
+		browser.tabs.update(null, { url: urlToRestore }, () => {
+			browser.runtime.reload()
+		});
+	  } else {
+		othentLoginButtonText.innerHTML = 'Logout'
+	  }
     } catch (error) {
 	  othentLoginButtonText.innerHTML = 'Logout'
       console.log(`othent.logout() failed:`, error);

@@ -4,3 +4,4 @@
 **/geckodriver.exe
 *.zip
 !extensions/*
+.DS_Store
