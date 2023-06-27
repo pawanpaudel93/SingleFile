@@ -1,9 +1,8 @@
 # SingleFile
 
-SingleFile is a Web Extension (and a CLI tool) compatible with Chrome, Firefox
-(Desktop and Mobile), Microsoft Edge, Safari, Vivaldi, Brave, Waterfox, Yandex
+SingleFile is a Web Extension (and a CLI tool) compatible with Chrome, Firefox, Microsoft Edge, Vivaldi, Brave, Waterfox, Yandex
 browser, and Opera. It helps you to save a complete web page into a single HTML
-file.
+file. The single HTML file can also be saved to permanent storage [Arweave](https://www.arweave.org/) using [Othent](https://othent.io/).
 
 ## Table of Contents
 
@@ -34,17 +33,14 @@ file.
 
 SingleFile can be installed on:
 
-- Firefox: <https://addons.mozilla.org/firefox/addon/single-file>
+- Firefox:
+  <https://github.com/pawanpaudel93/SingleFile-Archive/raw/master/extensions/singlefile-extension-firefox.zip>
 - Chrome:
-  <https://chrome.google.com/extensions/detail/mpiodijhokgodhhofbcjdecpffjipkle>
-- Safari: <https://apps.apple.com/us/app/singlefile-for-safari/id6444322545>
+  <https://github.com/pawanpaudel93/SingleFile-Archive/raw/master/extensions/singlefile-extension-chromium.zip>
 - Microsoft Edge:
-  <https://microsoftedge.microsoft.com/addons/detail/efnbkdcfmcmnhlkaijjjmhjjgladedno>
-- Firefox for Android Nightly by following this procedure:
-  <https://blog.mozilla.org/addons/2020/09/29/expanded-extension-support-in-firefox-for-android-nightly/>
+  <https://github.com/pawanpaudel93/SingleFile-Archive/raw/master/extensions/singlefile-extension-edge.zip>
 
-You can also download the zip file
-(<https://github.com/gildas-lormeau/SingleFile/archive/master.zip>) of the project
+You can also download the zip file of the project
 and install it manually by unzipping it somewhere on your disk and following
 these instructions:
 
@@ -54,8 +50,6 @@ these instructions:
   <https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked>
 - Microsoft Edge:
   <https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading>
-- Safari:
-  <https://github.com/gildas-lormeau/SingleFile-Safari-Extension>
   
 ## Getting started
 
@@ -279,8 +273,6 @@ See <https://github.com/gildas-lormeau/SingleFile/blob/master/privacy.md>
 ## License
 
 SingleFile is licensed under AGPL. Code derived from third-party projects is
-licensed under MIT. Please contact me at gildas.lormeau &lt;at&gt; gmail.com if
+licensed under MIT. Please contact at gildas.lormeau &lt;at&gt; gmail.com if
 you are interested in licensing the SingleFile code for a commercial service or
 product.
-
-Suggestions are welcome :)
