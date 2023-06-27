@@ -24,6 +24,11 @@ body {
     flex: none;
 }
 
+.right-buttons {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
 img[type=button] {
     cursor: pointer;
     background-color: #404040;

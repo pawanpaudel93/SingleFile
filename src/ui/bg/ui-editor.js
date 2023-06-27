@@ -527,22 +527,29 @@ function savePage() {
 }
 
 function onOthentLogin() {
-	othentLoginButton.src = userData.picture
+	othentLoginButtonIcon.style.borderRadius = "50%"
+	othentLoginButtonIcon.style.height = "100%"
+	othentLoginButtonIcon.style.width = "100%"
 	othentLoginButtonText.innerHTML = 'Logout'
 	othentLoginButtonIcon.src = userData.picture
 	othentUploadButton.style.display = "block"
-	othentLoginButtonIcon.style.height = "100%"
-	othentLoginButtonIcon.style.width = "100%"
-	othentLoginButtonIcon.style.borderRadius = "50%"
+}
+
+function beforeOthentLogin() {
+	othentLoginButtonText.innerHTML = 'Logging&nbsp;in...'
+}
+
+function beforeOthentLogout() {
+	othentLoginButtonText.innerHTML = 'Logging&nbsp;out...'
 }
 
 function onOthentLogout() {
+	othentLoginButtonIcon.style.borderRadius = "0%"
+	othentLoginButtonIcon.style.height = 20
+	othentLoginButtonIcon.style.width = 32
 	othentLoginButtonIcon.src = "/src/ui/resources/othent_icon.png"
 	othentLoginButtonText.innerHTML = 'Login&nbsp;with&nbsp;<span class="othent-login-button-brandname">Othent</span>'
 	othentUploadButton.style.display = "none"
-	othentLoginButtonIcon.style.height = 20
-	othentLoginButtonIcon.style.width = 32
-	othentLoginButtonIcon.style.borderRadius = "0%"
 }
 
 async function getOthent() {
@@ -551,24 +558,32 @@ async function getOthent() {
 
 async function othentLogin() {
 	try {
+		beforeOthentLogin()
 		const othent = await getOthent()
 		const loginResponse = await othent.logIn();
 		localStorage.setItem("othent:userData", JSON.stringify(loginResponse))
 		userData = loginResponse
 		onOthentLogin()
 	} catch (error) {
+		othentLoginButtonText.innerHTML = 'Login&nbsp;with&nbsp;<span class="othent-login-button-brandname">Othent</span>'
 		console.log(`othent.login() failed:`, error);
 	}
 }
 
 async function othentLogout() {
 	try {
+	  beforeOthentLogout()
       const othent = await getOthent();
+	  const urlToRestore = window.location.href
       const logoutResponse = await othent.logOut();
       localStorage.removeItem("othent:userData")
 	  userData = null
 	  onOthentLogout()
+	  browser.tabs.update(null, { url: urlToRestore }, () => {
+		browser.runtime.reload()
+	  });
     } catch (error) {
+	  othentLoginButtonText.innerHTML = 'Logout'
       console.log(`othent.logout() failed:`, error);
     }
 }

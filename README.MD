@@ -28,34 +28,34 @@ file.
 
 ## Demo
 
-https://user-images.githubusercontent.com/396787/156664907-cc458e35-f41b-45ca-91eb-372213812b44.mp4
+<https://user-images.githubusercontent.com/396787/156664907-cc458e35-f41b-45ca-91eb-372213812b44.mp4>
 
 ## Install
 
 SingleFile can be installed on:
 
-- Firefox: https://addons.mozilla.org/firefox/addon/single-file
+- Firefox: <https://addons.mozilla.org/firefox/addon/single-file>
 - Chrome:
-  https://chrome.google.com/extensions/detail/mpiodijhokgodhhofbcjdecpffjipkle
-- Safari: https://apps.apple.com/us/app/singlefile-for-safari/id6444322545
+  <https://chrome.google.com/extensions/detail/mpiodijhokgodhhofbcjdecpffjipkle>
+- Safari: <https://apps.apple.com/us/app/singlefile-for-safari/id6444322545>
 - Microsoft Edge:
-  https://microsoftedge.microsoft.com/addons/detail/efnbkdcfmcmnhlkaijjjmhjjgladedno
+  <https://microsoftedge.microsoft.com/addons/detail/efnbkdcfmcmnhlkaijjjmhjjgladedno>
 - Firefox for Android Nightly by following this procedure:
-  https://blog.mozilla.org/addons/2020/09/29/expanded-extension-support-in-firefox-for-android-nightly/
+  <https://blog.mozilla.org/addons/2020/09/29/expanded-extension-support-in-firefox-for-android-nightly/>
 
 You can also download the zip file
-(https://github.com/gildas-lormeau/SingleFile/archive/master.zip) of the project
+(<https://github.com/gildas-lormeau/SingleFile/archive/master.zip>) of the project
 and install it manually by unzipping it somewhere on your disk and following
 these instructions:
 
 - Firefox:
-  https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/
+  <https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/>
 - Chrome:
-  https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked
+  <https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked>
 - Microsoft Edge:
-  https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading
+  <https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading>
 - Safari:
-  https://github.com/gildas-lormeau/SingleFile-Safari-Extension
+  <https://github.com/gildas-lormeau/SingleFile-Safari-Extension>
   
 ## Getting started
 
@@ -100,17 +100,17 @@ these instructions:
 
 ## FAQ
 
-See https://github.com/gildas-lormeau/SingleFile/blob/master/faq.md
+See <https://github.com/gildas-lormeau/SingleFile/blob/master/faq.md>
 
 ## Release notes
 
-See https://addons.mozilla.org/firefox/addon/single-file/versions/
+See <https://addons.mozilla.org/firefox/addon/single-file/versions/>
 
 ## Known Issues
 
 - All browsers:
   - For security reasons, you cannot save pages hosted on
-    https://chrome.google.com, https://addons.mozilla.org and some other Mozilla
+    <https://chrome.google.com>, <https://addons.mozilla.org> and some other Mozilla
     domains. When this happens, 🛇 is displayed on top of the SingleFile icon.
   - For
     [security reasons](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image),
@@ -165,18 +165,18 @@ Please follow these steps if you find an unknown issue:
   extensions to see if there is a conflict.
 - If there is a conflict then try to determine against which extension(s).
 - Please report the issue with a short description on how to reproduce it here:
-  https://github.com/gildas-lormeau/SingleFile/issues.
+  <https://github.com/gildas-lormeau/SingleFile/issues>.
 
 ## Command Line Interface (SingleFile CLI)
 
 You can save web pages to HTML from the command line interface. See here for
-more info: https://github.com/gildas-lormeau/single-file-cli.
+more info: <https://github.com/gildas-lormeau/single-file-cli>.
 
 ## Integration with user scripts
 
 You can execute a user script just before (and after) SingleFile saves a page.
 For more info, see
-https://github.com/gildas-lormeau/SingleFile/wiki/How-to-execute-a-user-script-before-a-page-is-saved.
+<https://github.com/gildas-lormeau/SingleFile/wiki/How-to-execute-a-user-script-before-a-page-is-saved>.
 
 ## SingleFileZ
 
@@ -186,21 +186,21 @@ contains the resources (images, fonts, stylesheets and frames) of the saved
 page. This ZIP file can be unzipped on the filesystem in order, for example, to
 view the page in a browser that would not support pages saved with SingleFileZ.
 
-More info here: https://github.com/gildas-lormeau/SingleFileZ
+More info here: <https://github.com/gildas-lormeau/SingleFileZ>
 
 ## File format comparison
 
-|   	                                                                          | HTML (SingleFile)  | HTML (SingleFileZ) | MAFF  | MHTML | Webarchive (Safari) | HTML+folder |
-| ---                                	                                          |       :---:        |       :---:        | :---: | :---: |         :---:       |    :---:    |
-| Pages are saved as a single file                                              | ✓ 	               | ✓ 	                | ✓     | ✓     | ✓                   |             |
-| HTML and styles are minified                                                  | ✓                  | ✓ 	                |       |       |   	                |             |
-| Unused HTML and styles are removed from files                                 | ✓                  | ✓ 	                |       |       |                     |   	        |
-| Binary resources are not encoded in base 64                                   |                    | ✓ 	                | ✓     |       | ✓                   | ✓ 	        |
-| Files are compressed                                                          |                    | ✓ 	                | ✓     |       |                     |   	        |
+|                                                                              | HTML (SingleFile)  | HTML (SingleFileZ) | MAFF  | MHTML | Webarchive (Safari) | HTML+folder |
+| ---                                                                           |       :---:        |       :---:        | :---: | :---: |         :---:       |    :---:    |
+| Pages are saved as a single file                                              | ✓                 | ✓                  | ✓     | ✓     | ✓                   |             |
+| HTML and styles are minified                                                  | ✓                  | ✓                  |       |       |                    |             |
+| Unused HTML and styles are removed from files                                 | ✓                  | ✓                  |       |       |                     |            |
+| Binary resources are not encoded in base 64                                   |                    | ✓                  | ✓     |       | ✓                   | ✓          |
+| Files are compressed                                                          |                    | ✓                  | ✓     |       |                     |            |
 | Files can be viewed without installing any extension                          | ✓                  | ✓¹                 |       | ✓²    | ✓³                  | ✓           |
-| Files can be viewed without running JavaScript                                | ✓                  |         	          | ✓     | ✓     | ✓                   | ✓ 	        |
-| Files can be unzipped to extract resources and view pages                     |                    | ✓ 	                | ✓     |       |                     | n/a         |
-| Files contains the text of the page (plain or formatted) which can be indexed | ✓ 	               | ✓⁴                 |       | ✓     | ✓ 	                | ✓ 	        |
+| Files can be viewed without running JavaScript                                | ✓                  |                    | ✓     | ✓     | ✓                   | ✓          |
+| Files can be unzipped to extract resources and view pages                     |                    | ✓                  | ✓     |       |                     | n/a         |
+| Files contains the text of the page (plain or formatted) which can be indexed | ✓                 | ✓⁴                 |       | ✓     | ✓                  | ✓          |
 
 Footnotes:
 
@@ -216,59 +216,59 @@ an option must be enabled in Safari.
 ## Projects using/compatible with SingleFile
 
 - ArchiveBox - Open-source self-hosted web archiving:
-  https://github.com/ArchiveBox/ArchiveBox
+  <https://github.com/ArchiveBox/ArchiveBox>
 - htmls-to-datasette - Tool to index HTML files into a Sqlite database:
-  https://github.com/pjamar/htmls-to-datasette
+  <https://github.com/pjamar/htmls-to-datasette>
 - obsidian-html-plugin - Plugin for reading HTML pages in Obsidian:
-  https://github.com/nuthrash/obsidian-html-plugin
+  <https://github.com/nuthrash/obsidian-html-plugin>
 - Petal Cite Web Importer - Browser extension to save PDFs and capture web pages
-  in Petal Cite: https://github.com/ks-collab/cite-extension
+  in Petal Cite: <https://github.com/ks-collab/cite-extension>
 - singlefile2trilium - Tool to save faithful copy of a web page as a Trilium
-  note with SingleFile: https://github.com/nil0x42/singlefile2trilium
+  note with SingleFile: <https://github.com/nil0x42/singlefile2trilium>
 - SingleFileMacOS - Integration of SingleFile in a swift application using
-  webkit: https://github.com/captaindavepdx/SingleFileMacOS
+  webkit: <https://github.com/captaindavepdx/SingleFileMacOS>
 - Zotero Connector - Browser extension for Zotero, a tool to help you collect,
   organize, cite, and share your research sources:
-  https://github.com/zotero/zotero-connectors
+  <https://github.com/zotero/zotero-connectors>
 
 ## Privacy Policy
 
-See https://github.com/gildas-lormeau/SingleFile/blob/master/privacy.md
+See <https://github.com/gildas-lormeau/SingleFile/blob/master/privacy.md>
 
 ## Contributors
 
-- Chinese translation done by yfdyh000 (https://github.com/yfdyh000),
-  KrasnayaPloshchad (https://github.com/KrasnayaPloshchad), frostblazergit
-  (https://github.com/frostblazergit), dnknn (https://github.com/dnknn),
-  lqzhgood (https://github.com/lqzhgood)
+- Chinese translation done by yfdyh000 (<https://github.com/yfdyh000>),
+  KrasnayaPloshchad (<https://github.com/KrasnayaPloshchad>), frostblazergit
+  (<https://github.com/frostblazergit>), dnknn (<https://github.com/dnknn>),
+  lqzhgood (<https://github.com/lqzhgood>)
 - Traditional Chinese translation done by frostblazergit
-  (https://github.com/frostblazergit), lqzhgood (https://github.com/lqzhgood)
-- German translation done by womotroll (https://github.com/womotroll), bannmann
-  (https://github.com/bannmann)
-- Italian translation done by Fastbyte01 (https://github.com/Fastbyte01)
+  (<https://github.com/frostblazergit>), lqzhgood (<https://github.com/lqzhgood>)
+- German translation done by womotroll (<https://github.com/womotroll>), bannmann
+  (<https://github.com/bannmann>)
+- Italian translation done by Fastbyte01 (<https://github.com/Fastbyte01>)
 - Japanese translation done by Shitennouji（四天王寺)
-  (https://github.com/Shitennouji)
-- Polish translation done by xesarni (https://github.com/xesarni)
+  (<https://github.com/Shitennouji>)
+- Polish translation done by xesarni (<https://github.com/xesarni>)
 - Portuguese-Brazilian translation done by @mezysinc
 - Russian translation done by rstp14, kramola-RU
-  (https://github.com/kramola-RU), solokot (https://github.com/solokot),
-  TotalCaesar659 (https://github.com/TotalCaesar659)
-- Spanish translation done by strel (https://github.com/strel)
-- Turkish translation done by hbaklan943 (https://github.com/hbaklan943)
-- Ukrainian translation done by perdolka (https://github.com/perdolka),
+  (<https://github.com/kramola-RU>), solokot (<https://github.com/solokot>),
+  TotalCaesar659 (<https://github.com/TotalCaesar659>)
+- Spanish translation done by strel (<https://github.com/strel>)
+- Turkish translation done by hbaklan943 (<https://github.com/hbaklan943>)
+- Ukrainian translation done by perdolka (<https://github.com/perdolka>),
   gildas-lormeau
 
 ## Code derived from third party projects
 
-- csstree: https://github.com/csstree/csstree
+- csstree: <https://github.com/csstree/csstree>
 - postcss-media-query-parser:
-  https://github.com/dryoma/postcss-media-query-parser
-- postcss-selector-parser: https://github.com/postcss/postcss-selector-parser
-- UglifyCSS: https://github.com/fmarcia/UglifyCSS
-- parse-srcset: https://github.com/albell/parse-srcset
-- parse-css-font: https://github.com/jedmao/parse-css-font
-- Readability: https://github.com/mozilla/readability
-- whatwg-mimetype: https://github.com/jsdom/whatwg-mimetype
+  <https://github.com/dryoma/postcss-media-query-parser>
+- postcss-selector-parser: <https://github.com/postcss/postcss-selector-parser>
+- UglifyCSS: <https://github.com/fmarcia/UglifyCSS>
+- parse-srcset: <https://github.com/albell/parse-srcset>
+- parse-css-font: <https://github.com/jedmao/parse-css-font>
+- Readability: <https://github.com/mozilla/readability>
+- whatwg-mimetype: <https://github.com/jsdom/whatwg-mimetype>
 
 ## Icons
 
