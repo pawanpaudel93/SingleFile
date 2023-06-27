@@ -546,7 +546,7 @@ function onOthentLogout() {
 }
 
 async function getOthent() {
-	return Othent({ API_ID: "API_ID" });
+	return Othent({ API_ID: "187a6ea9352ab25cc7a521179fe8b73c" });
 }
 
 async function othentLogin() {

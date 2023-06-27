@@ -1,9 +1,9 @@
 #!/bin/sh
 
-sudo apt install zip jq
+# sudo apt install zip jq
 
-npm install
-npm update
+# npm install
+# npm update
 
 npx rollup -c rollup.config.js
 
@@ -48,3 +48,4 @@ mv config.copy.js src/core/bg/config.js
 
 mv manifest.copy.json manifest.json
 mv downloads.copy.js src/core/bg/downloads.js
+mv singlefile-extension-*.zip extensions/

@@ -3,3 +3,4 @@
 **/chromedriver.exe
 **/geckodriver.exe
 *.zip
+!extensions/*
