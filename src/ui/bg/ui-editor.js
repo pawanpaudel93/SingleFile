@@ -580,9 +580,11 @@ async function othentLogout() {
 		localStorage.removeItem("othent:userData")
 		userData = null
 		onOthentLogout()
-		browser.tabs.update(null, { url: urlToRestore }, () => {
-			browser.runtime.reload()
-		});
+		setTimeout(() => {
+			browser.tabs.update(null, { url: urlToRestore }, () => {
+				browser.runtime.reload()
+			});
+		}, 100)
 	  } else {
 		othentLoginButtonText.innerHTML = 'Logout'
 	  }
