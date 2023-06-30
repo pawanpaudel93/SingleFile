@@ -1,6 +1,6 @@
 # SingleFile
 
-SingleFile is a Web Extension (and a CLI tool) compatible with Chrome, Firefox, Microsoft Edge, Vivaldi, Brave, Waterfox, Yandex
+SingleFile is a Web Extension (and a CLI tool) compatible with Chrome, Microsoft Edge, Vivaldi, Brave, Waterfox, Yandex
 browser, and Opera. It helps you to save a complete web page into a single HTML
 file. The single HTML file can also be saved to permanent storage [Arweave](https://www.arweave.org/) using [Othent](https://othent.io/).
 
@@ -33,8 +33,6 @@ file. The single HTML file can also be saved to permanent storage [Arweave](http
 
 SingleFile can be installed on:
 
-- Firefox:
-  <https://github.com/pawanpaudel93/SingleFile-Archive/raw/master/extensions/singlefile-extension-firefox.zip>
 - Chrome:
   <https://github.com/pawanpaudel93/SingleFile-Archive/raw/master/extensions/singlefile-extension-chromium.zip>
 - Microsoft Edge:
@@ -44,8 +42,6 @@ You can also download the zip file of the project
 and install it manually by unzipping it somewhere on your disk and following
 these instructions:
 
-- Firefox:
-  <https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/>
 - Chrome:
   <https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked>
 - Microsoft Edge:

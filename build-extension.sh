@@ -48,4 +48,4 @@ mv config.copy.js src/core/bg/config.js
 
 mv manifest.copy.json manifest.json
 mv downloads.copy.js src/core/bg/downloads.js
-mv singlefile-extension-*.zip extensions/
+mv singlefile-extension-chromium.zip singlefile-extension-edge.zip extensions/

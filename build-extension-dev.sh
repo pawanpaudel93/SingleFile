@@ -48,6 +48,6 @@ mv config.copy.js src/core/bg/config.js
 
 mv manifest.copy.json manifest.json
 mv downloads.copy.js src/core/bg/downloads.js
-cp singlefile-extension-chromium.zip singlefile-extension-firefox.zip singlefile-extension-edge.zip ~/Downloads/
+cp singlefile-extension-chromium.zip singlefile-extension-edge.zip ~/Downloads/
 cd ~/Downloads && rm -rf singlefile-extension-chromium && unzip singlefile-extension-chromium.zip -d singlefile-extension-chromium
 cd ~/Downloads && rm -rf singlefile-extension-edge && unzip singlefile-extension-edge.zip -d singlefile-extension-edge
