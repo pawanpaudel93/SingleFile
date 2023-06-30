@@ -27,7 +27,7 @@ file. The single HTML file can also be saved to permanent storage [Arweave](http
 
 ## Demo
 
-<https://user-images.githubusercontent.com/396787/156664907-cc458e35-f41b-45ca-91eb-372213812b44.mp4>
+<https://github.com/pawanpaudel93/SingleFile-Arweave/assets/11836100/d5c43a16-6549-4e2a-ac77-b6bb1c3f783c>
 
 ## Install
 
