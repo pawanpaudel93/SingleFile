@@ -8,6 +8,7 @@
 		"64": "src/ui/resources/icon_64.png",
 		"128": "src/ui/resources/icon_128.png"
 	},
+	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApHSFgPi+JlFPZJjMGEz/JIsTaGeHxLrJQYopjHeEzuRr/OA+lovUR7Cg/VqnAhP6RoeKcku4cEbDS/ghAR6oJSBtZ4UX/snFHbzt9boNA34ftt4Wi1X2f97J9tYs8nKTnPTugWleyBanLV/6ALDFm8iURZdjFqF5Mmft0+iXpeyyqeWjSsgWA8aQyOdMHjLAr9/5wO/Ic3qu279sD5YdrYM4OV6WV7qAZKi6xAtYlFOolds0Jar2KU/jRYsyMtVkUGz1IUZkJS7/nqZHG8+m48G17RgMSHk6Av2R2cbbWUc5bKcZ5cZW3h5UPncgFnVJew5yMCh9+eoVIwiaGeSWPQIDAQAB",
 	"version": "1.21.43",
 	"description": "__MSG_extensionDescription__",
 	"content_scripts": [
